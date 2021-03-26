@@ -1,14 +1,30 @@
 define([
+	"skylark-langx-types",
 	"./mimes",
 	"./types"
-],function(mimes,types) { 
-	return mimes.extenstions = {
-		getMimeType : function(ext,category) {
-			for (var t in types) {
-				if (types[t] === ext && (!category || t.startsWith(category))) {
-					return t;
-				}
+],function(ltypes,mimes,types) { 
+	var extenstions = {};
+
+	for (var type in types)  {
+		var extNames = types[type];
+		if (ltypes.isString(extNames)) {
+			extNames = [extNames];
+		}
+		for (var i=0;i<extNames.length;i++) {
+			var extName = extNames[i];
+			
+			if (!extenstions[extName]) {
+				extenstions[extName] = type;
+			} else if (ltypes.isString(extenstions[extName])) {
+				extenstions[extName] = [extenstions[extName],type]
+			} else {
+				extenstions[extName].push(type);
 			}
-		}	
-	};
+		}
+
+	}
+
+
+	return mimes.extenstions = extenstions;
+
 });

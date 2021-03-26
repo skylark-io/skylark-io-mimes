@@ -688,6 +688,10 @@ define([
 	  "image\/x-xpixmap": "xpm",
 	  "image\/x-xwindowdump": "xwd",
 
+	  "image\/x-xwindowdump": "xwd",
+
+      "image/panorama+jpeg" :  "jpegp", 
+
 	  "message\/rfc822": "eml",
 
 
@@ -705,6 +709,7 @@ define([
 
 	  "model\/gltf+json": "gltf",
 	  "model\/gltf+binary": "glb",
+	  "model\/u-obj+text": "obj",
 
 
 	  "text\/x-php": "php",
@@ -804,6 +809,8 @@ define([
 	  "video\/x-sgi-movie": "movie",
 	  "video\/x-smv": "smv",
 	  "video\/x-ms-wmv": "wm",
+
+	  "video\/panorama+mp4": "mp4p",
 
 	  "x-conference\/x-cooltalk": "ice",
 	  "image\/x-pixlr-data": "pxd",

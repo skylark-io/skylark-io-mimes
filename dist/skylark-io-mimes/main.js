@@ -5,5 +5,5 @@
  * @link www.skylarkjs.org
  * @license MIT
  */
-define(["./mimes","./types"],function(e){return e});
+define(["./mimes","./extensions","./getMimeType","./types"],function(e){return e});
 //# sourceMappingURL=sourcemaps/main.js.map

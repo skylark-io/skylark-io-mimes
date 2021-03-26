@@ -783,6 +783,10 @@ define('skylark-io-mimes/types',[
 	  "image\/x-xpixmap": "xpm",
 	  "image\/x-xwindowdump": "xwd",
 
+	  "image\/x-xwindowdump": "xwd",
+
+      "image/panorama+jpeg" :  "jpegp", 
+
 	  "message\/rfc822": "eml",
 
 
@@ -800,6 +804,7 @@ define('skylark-io-mimes/types',[
 
 	  "model\/gltf+json": "gltf",
 	  "model\/gltf+binary": "glb",
+	  "model\/u-obj+text": "obj",
 
 
 	  "text\/x-php": "php",
@@ -900,6 +905,8 @@ define('skylark-io-mimes/types',[
 	  "video\/x-smv": "smv",
 	  "video\/x-ms-wmv": "wm",
 
+	  "video\/panorama+mp4": "mp4p",
+
 	  "x-conference\/x-cooltalk": "ice",
 	  "image\/x-pixlr-data": "pxd",
 	  "image\/x-adobe-dng": "dng",
@@ -915,8 +922,54 @@ define('skylark-io-mimes/types',[
 
 });
 
+define('skylark-io-mimes/extensions',[
+	"skylark-langx-types",
+	"./mimes",
+	"./types"
+],function(ltypes,mimes,types) { 
+	var extenstions = {};
+
+	for (var type in types)  {
+		var extNames = types[type];
+		if (ltypes.isString(extNames)) {
+			extNames = [extNames];
+		}
+		for (var i=0;i<extNames.length;i++) {
+			var extName = extNames[i];
+			
+			if (!extenstions[extName]) {
+				extenstions[extName] = type;
+			} else if (ltypes.isString(extenstions[extName])) {
+				extenstions[extName] = [extenstions[extName],type]
+			} else {
+				extenstions[extName].push(type);
+			}
+		}
+
+	}
+
+
+	return mimes.extenstions = extenstions;
+
+});
+define('skylark-io-mimes/getMimeType',[
+	"./mimes",
+	"./types"
+],function(mimes,types) { 
+	function getMimeType(ext,category) {
+		for (var t in types) {
+			if (types[t] === ext && (!category || t.startsWith(category))) {
+				return t;
+			}
+		}
+	}	
+
+	return mimes.getMimeType = getMimeType;
+});
 define('skylark-io-mimes/main',[
 	"./mimes",
+	"./extensions",
+	"./getMimeType",
 	"./types"
 ],function(mimes){
 	return mimes;
