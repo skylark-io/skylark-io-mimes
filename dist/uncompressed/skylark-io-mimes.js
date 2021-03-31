@@ -786,6 +786,7 @@ define('skylark-io-mimes/types',[
 	  "image\/x-xwindowdump": "xwd",
 
       "image/panorama+jpeg" :  "jpegp", 
+      "image/panorama+jpg" :  "jpgp", 
 
 	  "message\/rfc822": "eml",
 
