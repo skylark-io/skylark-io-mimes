@@ -787,6 +787,7 @@ define('skylark-io-mimes/types',[
 
       "image/panorama+jpeg" :  "jpegp", 
       "image/panorama+jpg" :  "jpgp", 
+      "image/panorama+png" :  "pngp", 
 
 	  "message\/rfc822": "eml",
 
