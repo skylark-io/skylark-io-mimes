@@ -744,6 +744,7 @@ define('skylark-io-mimes/types',[
 	  "image\/gif": "gif",
 	  "image\/ief": "ief",
 	  "image\/jpeg": "jpeg",
+	  "image\/jpg": "jpg",
 	  "image\/ktx": "ktx",
 	  "image\/png": "png",
 	  "image\/prs.btif": "btif",
