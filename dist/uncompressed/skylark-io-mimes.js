@@ -685,6 +685,7 @@ define('skylark-io-mimes/types',[
 	  "application\/zip": "zip",
 	  "application\/rtfd": "rtfd",
 
+	  "application\/x-cglap": "cglap",
 
 	  "audio\/wav": "wav",
 	  "audio\/adpcm": "adp",
